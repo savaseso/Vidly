@@ -41,7 +41,7 @@ handlePageChange = page => {
   this.setState({currentPage:page});
 }
 handleGenreSelect = genre => {
-  this.setState({selectedGenre:genre});
+  this.setState({selectedGenre:genre, currentPage: 1});
 
  }
 
