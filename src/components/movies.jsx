@@ -6,6 +6,7 @@ import {paginate} from '../utils/paginate';
 import ListGroup from './common/listGroup'
 import { getGenres } from '../services/fakeGenreService';
 import MoviesTable from './moviesTable'
+import _ from 'lodash';
 
 
 export class Movies extends Component {
@@ -15,11 +16,12 @@ state = {
     genres: [],
     movies: [],
     currentPage:1,
-    pageSize: 4
+    pageSize: 4,
+    sortColumn: {path: 'title', order:'asc'}
     }
 
 componentDidMount() {
-  const genres = [{name: 'All Genres'},...getGenres()]
+  const genres = [{_id:"",name: 'All Genres'},...getGenres()]
 
   this.setState({movies:getMovies(), genres:genres});
 }
@@ -44,8 +46,8 @@ handleGenreSelect = genre => {
   this.setState({selectedGenre:genre, currentPage: 1});
  }
  handleSort = path => {
-   console.log(path)
- }
+  this.setState({sortColumn:{path:path, order:'asc'}})
+}
 
 
 
