@@ -11,8 +11,20 @@ class moviesTable extends Component {
     {path: 'genre.name', label: 'Genre'},
     {path: 'numberInStock', label: 'Stock'},
     {path: 'dailyRentalRate', label: 'Rate'},
-    {key:  'like'},
-    {key: 'delete'}
+    {
+      key:  'like',
+      content: movie =>(
+        <Like liked={movie.liked} onClick={()=>this.props.onLike(movie)} />
+        )
+      },
+    {
+      key: 'delete',
+      content: movie => (
+        <button className="btn btn-danger btn-sm"onClick={() => this.props.onDelete(movie)}
+        >
+        Delete
+        </button>)
+    }
   ];
 
   render() {
@@ -20,11 +32,13 @@ class moviesTable extends Component {
     return (
       <table className="table">
           <TableHeader 
-          columns={this.columns}
-          sortColumns={sortColumn}
-          onSort={onSort} />
-          <TableBody data={movies}/>
-        
+              columns={this.columns}
+              sortColumns={sortColumn}
+              onSort={onSort} />
+          <TableBody
+              columns={this.columns} 
+              data={movies}/>
+      </table>
     );
   }
 }
