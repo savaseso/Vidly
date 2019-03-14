@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 
 class TableBody extends Component {
+    renderCell = (item, column) => {
+        if(column.content) return column.content(item);
+
+        return  _.get(item, column.path)
+    }
     render() {
-        const { data, columns }=this.props
+        const { data, columns } = this.props
         return (
             <tbody>
-                {data.map(item=>
+                {data.map(item =>
                 <tr>
-                    {columns.map(column => <td>{column.path}</td>)}
+                    {columns.map(column => 
+                        <td>{this.renderCell(item, column)}</td>)}
                 </tr>
                 )}
             </tbody>
         );
-    }
+   }
 }
 
 export default TableBody;
