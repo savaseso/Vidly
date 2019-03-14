@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TableHeader from './common/tableHeader'
 import Like from './common/like'
+import TableBody from './common/TableBody'
 
 
 class moviesTable extends Component {
@@ -22,20 +23,8 @@ class moviesTable extends Component {
           columns={this.columns}
           sortColumns={sortColumn}
           onSort={onSort} />
-          <tbody>
-              {movies.map((movie)=>{ 
-                return(
-                    <tr key={movie._id}>
-                      <td>{movie.title}</td>
-                      <td>{movie.genre.name}</td>
-                      <td>{movie.numberInStock}</td>
-                      <td>{movie.dailyRentalRate}</td>
-                      <td><Like liked={movie.liked} onClick={()=>onLike(movie)} /></td>
-                      <td><button className="btn btn-danger btn-sm"onClick={() => onDelete(movie)}>Delete</button></td>
-                    </tr>)
-                  })}
-         </tbody>     
-        </table>
+          <TableBody data={movies}/>
+        
     );
   }
 }
