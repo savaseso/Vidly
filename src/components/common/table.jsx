@@ -3,9 +3,7 @@ import TableHeader from './tableHeader'
 import TableBody from './TableBody'
 
 
-const Table = (props) => {
-
-const {columns, sortColumn, onSort, data} = props;
+const Table = ({columns, sortColumn, onSort, data}) => {
 return(
     <table className="table">
         <TableHeader 

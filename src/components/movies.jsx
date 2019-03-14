@@ -67,7 +67,7 @@ getPageData = () =>{
     if(count === 0) {
       return <h2>There are no movies in the database.</h2>} 
     
-   const {totalCount, data:movies} = this.getPageData();
+   const {totalCount, data: movies} = this.getPageData();
 
     return (
       <div className = "row">
@@ -78,7 +78,7 @@ getPageData = () =>{
               selectedItem = {this.state.selectedGenre}/>
         </div>
         <div className="col">
-          <h2>Showing {totalCount.length} movies in the database.</h2>
+          <h2>Showing {totalCount} movies in the database.</h2>
           <MoviesTable 
               movies = {movies} 
               onLike={this.handleLike} 
@@ -87,7 +87,7 @@ getPageData = () =>{
               sortColumn={sortColumn}
               />
           <Pagination
-              itemsCount={totalCount.length} 
+              itemsCount={totalCount} 
               pageSize={pageSize} 
               onPageChange={this.handlePageChange}
               currentPage={currentPage}
