@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react'
+
 import Like from './common/like'
 
 
-const moviesTable = (props) => {
-   
-const { movies, onDelete, onLike, onSort }=props;
-    
-return(
-         <table className="table">
+class moviesTable extends Component {
+  
+  render() {
+    const { movies, onDelete, onLike, onSort } = this.props;
+    return (
+      <table className="table">
           <thead>
             <tr>
               <th scope="col" onClick={() => onSort('title')}>Title</th>
@@ -32,6 +33,9 @@ return(
                   })}
          </tbody>     
         </table>
-    )
+    );
+  }
 }
-export default moviesTable
+
+export default moviesTable;
+
