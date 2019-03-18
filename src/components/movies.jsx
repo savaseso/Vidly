@@ -93,8 +93,7 @@ getPageData = () =>{
               currentPage={currentPage}
           />
         </div>
-       
-        </div>
+      </div>
     )
   }
 }
