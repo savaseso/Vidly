@@ -6,6 +6,7 @@ import Rentals from './components/rental';
 import NotFound from './components/notFound';
 import NavBar from './components/common/navBar';
 import MovieForm from './components/movieForm'
+import LoginForm from './components/common/loginForm';
 import './App.css';
 
 
@@ -17,6 +18,7 @@ class App extends Component {
         <NavBar />
         <div className="content">
             <Switch>
+              <Route path="/login" component={LoginForm}/>
               <Route path="/movies/:id"  component={MovieForm}/>
               <Route path="/movies"  component={Movies}/>
               <Route path="/customers" component={Customers}/>
@@ -24,7 +26,7 @@ class App extends Component {
               <Route path="/notFound"  component={NotFound}/>
               <Redirect from="/" exact to="/movies" />
               <Redirect to="/notFound" />
-            </Switch>
+            </Switch>      
         </div>
       </div>
     )
