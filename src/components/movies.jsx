@@ -7,7 +7,6 @@ import ListGroup from './common/listGroup'
 import { getGenres } from '../services/fakeGenreService';
 import MoviesTable from './moviesTable'
 import _ from 'lodash';
-import NavBar from './common/navBar';
 
 
 export class Movies extends Component {
@@ -71,8 +70,6 @@ getPageData = () =>{
    const {totalCount, data: movies} = this.getPageData();
 
     return (
-    <div>
-      <NavBar />
       <div className = "row">
         <div className="col-3">
           <ListGroup  
@@ -97,7 +94,6 @@ getPageData = () =>{
           />
         </div>
       </div>
-    </div>
     )
   }
 }
