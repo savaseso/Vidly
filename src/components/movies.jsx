@@ -78,6 +78,7 @@ getPageData = () =>{
               selectedItem = {this.state.selectedGenre}/>
         </div>
         <div className="col">
+          <button onClick={()=>{this.props.history.push('/MovieForm')}}className="btn btn-primary my-3">New Movie</button>
           <h2>Showing {totalCount} movies in the database.</h2>
           <MoviesTable 
               movies = {movies} 

@@ -7,7 +7,9 @@ import NotFound from './components/notFound';
 import NavBar from './components/common/navBar';
 import MovieForm from './components/movieForm'
 import LoginForm from './components/common/loginForm';
+import RegisterForm from './components/common/RegisterForm'
 import './App.css';
+import { register } from './serviceWorker';
 
 
 class App extends Component {
@@ -18,6 +20,7 @@ class App extends Component {
         <NavBar />
         <div className="content">
             <Switch>
+              <Route path="/register" component={RegisterForm}/>
               <Route path="/login" component={LoginForm}/>
               <Route path="/movies/:id"  component={MovieForm}/>
               <Route path="/movies"  component={Movies}/>

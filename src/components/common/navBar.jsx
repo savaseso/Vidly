@@ -15,6 +15,7 @@ return(
       <NavLink className="nav-item nav-link" to="/customers">Customers</NavLink>
       <NavLink className="nav-item nav-link" to="/rental">Rentals</NavLink>
       <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
+      <NavLink className="nav-item nav-link" to="/register">Register</NavLink>
     </div>
   </div>
 </nav>
