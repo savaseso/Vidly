@@ -5,8 +5,9 @@ import Pagination from './common/pagination'
 import {paginate} from '../utils/paginate';
 import ListGroup from './common/listGroup'
 import { getGenres } from '../services/fakeGenreService';
-import MoviesTable from './moviesTable'
+import MoviesTable from './moviesTable';
 import _ from 'lodash';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export class Movies extends Component {
@@ -78,7 +79,7 @@ getPageData = () =>{
               selectedItem = {this.state.selectedGenre}/>
         </div>
         <div className="col">
-          <button onClick={()=>{this.props.history.push('/MovieForm')}}className="btn btn-primary my-3">New Movie</button>
+          <Link to="/movies/new" className="btn btn-primary" style={{marginBottom:20}}>New Movie</Link>
           <h2>Showing {totalCount} movies in the database.</h2>
           <MoviesTable 
               movies = {movies} 

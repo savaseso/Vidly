@@ -9,7 +9,6 @@ import MovieForm from './components/movieForm'
 import LoginForm from './components/common/loginForm';
 import RegisterForm from './components/common/RegisterForm'
 import './App.css';
-import { register } from './serviceWorker';
 
 
 class App extends Component {
