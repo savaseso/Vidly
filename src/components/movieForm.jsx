@@ -31,7 +31,7 @@ class MovieForm extends Form {
         try {
             const movieId=this.props.match.params.id;
             if(movieId==="new") return;
-            
+
             const { data:movie } = await getMovie(movieId);
             this.setState({data: this.mapToViewModel(movie)});
         }
@@ -55,8 +55,8 @@ class MovieForm extends Form {
           };
       }
     
-    doSubmit = () => {
-        saveMovie(this.state.data);
+    doSubmit = async () => {
+       await saveMovie(this.state.data);
 
         this.props.history.push('/movies');
     }
