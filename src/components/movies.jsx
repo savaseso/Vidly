@@ -94,6 +94,7 @@ return {totalCount: filtered.length, data: movies};
   render() {
     const {length: count} = this.state.movies;
     const {pageSize, currentPage, sortColumn, searchQuery} = this.state;
+    const { user } = this.props;
 
     if(count === 0) {
       return <h2>There are no movies in the database.</h2>} 
@@ -109,7 +110,7 @@ return {totalCount: filtered.length, data: movies};
               selectedItem = {this.state.selectedGenre}/>
         </div>
         <div className="col">
-          <Link to="/movies/new" className="btn btn-primary" style={{marginBottom:20}}>New Movie</Link>
+          {user && <Link to="/movies/new" className="btn btn-primary" style={{marginBottom:20}}>New Movie</Link>}
           <h2>Showing {totalCount} movies in the database.</h2>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable 
